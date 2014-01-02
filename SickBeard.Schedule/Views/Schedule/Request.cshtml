@@ -1,0 +1,62 @@
+﻿@model SickBeard.Schedule.Models.SearchEntry
+
+@{
+    ViewBag.Title = "Request Show";
+}
+
+<h2>Request a new Show</h2>
+
+@using (Html.BeginForm("", "Request", FormMethod.Post, new { @class = "search" }))
+{
+    @Html.TextBoxFor(m => m.query, new { @class = "search-box" });
+    <input type="submit" value="Search" class="submit" />
+}
+
+@try
+{
+    if (Model.results.Length > 0)
+    {
+        <table class="results table table-hover">
+            <thead>
+                <tr>
+                    <td>TVDB id</td>
+                    <td>Show name</td>
+                    <td>First air date</td>
+                    <td class="add-col">Add</td>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var r in Model.results)
+                {
+                    <tr class="result">
+                        <td><a href="http://thetvdb.com/?tab=series&id=@r.tvdbid" target="_blank">@r.tvdbid</a></td>
+                        <td class="name">@r.name</td>
+                        <td class="date">@(r.first_aired.HasValue ? r.first_aired.Value.ToString("dd-MM-yyyy") : "none")</td>
+                        <td class="add">
+                            <a href="/Schedule/Add/@r.tvdbid"><div class="gray-add"></div></a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+    else if (!string.IsNullOrEmpty(Model.query))
+    {
+        <table class="results table table-hover">
+            <thead>
+                <tr>
+                    <td>TVDB id</td>
+                    <td>Show name</td>
+                    <td>First air date</td>
+                    <td>Add show</td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td colspan="4">The search resulted in nothing, please try again!</td>
+                </tr>
+            </tbody>
+        </table>
+    }
+}
+catch (NullReferenceException ex) { }

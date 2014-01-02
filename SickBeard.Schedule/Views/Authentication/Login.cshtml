@@ -1,0 +1,27 @@
+﻿@model SickBeard.Schedule.Models.LoginModel
+
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/_Layout_Auth.cshtml";
+}
+
+<div class="chillflix-logo"></div>
+
+@using (Html.BeginForm("Login", "Authentication", FormMethod.Post, new { @class = "login-form" }))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(false)
+    @Html.HiddenFor(m => m.ReturnUrl)
+
+    @Html.TextBoxFor(m => m.Username, new { placeholder = "Username", autocomplete = "off" })
+    @Html.PasswordFor(m => m.Password, new { placeholder = "Password" })
+
+    @Html.LabelFor(m => m.Remember)
+    @Html.CheckBoxFor(m => m.Remember)
+
+    <input type="submit" value="Login" class="submit" />
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

@@ -1,0 +1,744 @@
+﻿body {
+    font-size: .85em;
+    font-family: "Segoe UI","Segoe UI Web Regular","Segoe UI Symbol","Helvetica Neue","BBAlpha Sans","S60 Sans",Arial,sans-serif;
+    color: #232323;
+    min-width: 950px;
+}
+
+header, footer, nav, section {
+    display: block;
+}
+
+/* Fonts
+-----------------------------------------------------------*/
+
+@font-face {
+    font-family: "Segoe UI Web Light";
+    src: local("Segoe UI Light"),local("Segoe UI"),local("HelveticaNeue-Light");
+    font-style: normal;
+    font-weight: 100;
+    unicode-range: U+0-FF,U+300-36F;
+}
+
+@font-face {
+    font-family: "Segoe UI Web Regular";
+    src: local("Segoe UI"),local("Helvetica Neue");
+    font-style: normal;
+    font-weight: normal;
+    unicode-range: U+0-FF,U+300-36F;
+}
+
+/* Styles for the chillflix bar
+-----------------------------------------------------------*/
+
+header {
+    height: 70px;
+    width: 96%;
+    background-color: rgb(185, 9, 11);
+    position: fixed;
+    top: 2%;
+    left: 2%;
+    -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+    -moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+    min-width: 925px;
+}
+
+    header > .logo {
+        position: absolute;
+        background-image: url(images/logo.png);
+        width: 137px;
+        height: 65px;
+        top: 2.5px;
+        left: 40px;
+    }
+
+    header > .page-name {
+        height: 70px;
+        line-height: 70px;
+        text-align: center;
+        font-size: x-large;
+        color: white;
+        margin-left: 245px;
+        float: left;
+    }
+
+.fill {
+    position: fixed;
+    height: 2%;
+    width: 96%;
+    top: 0;
+    left: 2%;
+    background: white;
+}
+
+/* Styles for the chillflix menu
+-----------------------------------------------------------*/
+
+.menu {
+    height: 70px;
+    width: 592px;
+    margin-left: auto;
+    margin-right: 0px;
+}
+
+    .menu > div {
+        height: 70px;
+        width: 250px;
+        float: left;
+        border-left: solid 1px rgba(0,0,0,0.2);
+        line-height: 70px;
+        font-size: large;
+        font-weight: bold;
+        color: white;
+        cursor: pointer;
+        text-align: center;
+        -webkit-transition: background-color ease-in-out 125ms;
+        -moz-transition: background-color ease-in-out 125ms;
+        -ms-transition: background-color ease-in-out 125ms;
+        -o-transition: background-color ease-in-out 125ms;
+        transition: background-color ease-in-out 125ms;
+    }
+
+        .menu > div:hover {
+            background-color: rgba(0, 0, 0, 0.1);
+        }
+
+        .menu > div .drop-down {
+            display: none;
+            border: 1px solid rgba(0,0,0,0.2);
+            background-color: rgb(185, 9, 11);
+            margin: 0 0 0 -1px;
+            height: 70px;
+            width: 250px;
+        }
+
+            .menu > div .drop-down a {
+                width: 249px;
+                height: 70px;
+                line-height: 70px;
+                font-weight: 300;
+            }
+
+                .menu > div .drop-down a:nth-child(1) {
+                    display: none;
+                }
+
+                .menu > div .drop-down a:hover {
+                    background-color: rgba(0, 0, 0, 0.1);
+                }
+
+        .menu > div:hover .drop-down {
+            display: block;
+        }
+
+.user-icon {
+    width: 70px;
+    height: 70px;
+    border-right: 1px solid rgba(0,0,0,0.2);
+    float: left;
+    background-image: url(images/user.png);
+}
+
+.logout-icon, .settings-icon {
+    width: 48px;
+    height: 48px;
+    float: left;
+    margin: 11px 0px 0px 11px;
+}
+
+.logout-icon {
+    background-image: url(images/logout.png);
+}
+
+.settings-icon {
+    background-image: url(images/settings.png);
+}
+
+.menu a:not(.menu-add) {
+    text-decoration: none;
+    color: white;
+    width: 149px;
+    float: left;
+    font-size: large;
+    font-weight: bold;
+    line-height: 70px;
+    text-align: center;
+    -webkit-transition: background-color ease-in-out 125ms;
+    -moz-transition: background-color ease-in-out 125ms;
+    -ms-transition: background-color ease-in-out 125ms;
+    -o-transition: background-color ease-in-out 125ms;
+    transition: background-color ease-in-out 125ms;
+}
+
+.menu a:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+.menu-schedule {
+    border-left: 1px solid rgba(0,0,0,0.2);
+}
+
+.menu-overview {
+    border-right: 1px solid rgba(0,0,0,0.2);
+}
+
+.menu-add {
+    float: left;
+    width: 40px;
+    height: 70px;
+    color: transparent;
+    -webkit-transition: background-color ease-in-out 125ms;
+    -moz-transition: background-color ease-in-out 125ms;
+    -ms-transition: background-color ease-in-out 125ms;
+    -o-transition: background-color ease-in-out 125ms;
+    transition: background-color ease-in-out 125ms;
+}
+
+    .menu-add .icon {
+        width: 24px;
+        height: 24px;
+        background-image: url(images/add.png);
+        margin: 23px 0px 0px 8px;
+    }
+
+
+/* Styles for the schedule view
+-----------------------------------------------------------*/
+
+h2 {
+    text-align: center;
+    font-size: xx-large;
+    margin-top: 100px;
+}
+
+.schedule-block {
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    padding: 10px 0px;
+    width: 758px;
+    margin: 25px auto;
+    -webkit-box-shadow: 0px 0px 8px rgba(0,0,0,0.3);
+    -moz-box-shadow: 0px 0px 8px rgba(0,0,0,0.3);
+    box-shadow: 0px 0px 8px rgba(0,0,0,0.3);
+    border-radius: 3px;
+}
+
+    .schedule-block.today {
+        background: rgba(0, 255, 0, 0.05);
+    }
+
+    .schedule-block.missed {
+        background: rgba(255, 0, 0, 0.05);
+    }
+
+.schedule-title {
+    text-align: center;
+    padding-bottom: 10px;
+    font-size: large;
+}
+
+.schedule-banner > img {
+    border-top: 1px solid rgba(0, 0, 0, 0.2);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.schedule-details {
+    height: 90px;
+    text-align: center;
+}
+
+    .schedule-details > .left {
+        float: left;
+        width: 379px;
+    }
+
+    .schedule-details > .right {
+        float: right;
+        width: 379px;
+    }
+
+/* Styles for the overview view
+-----------------------------------------------------------*/
+
+.overview {
+    float: left;
+    width: 280px;
+}
+
+    .overview.margin {
+        margin-right: 20px;
+    }
+
+.overview-show {
+    width: 280px;
+    height: 460px;
+    margin-bottom: 35px;
+    -webkit-box-shadow: 0px 0px 8px rgba(0,0,0,0.2);
+    -moz-box-shadow: 0px 0px 8px rgba(0,0,0,0.2);
+    box-shadow: 0px 0px 8px rgba(0,0,0,0.2);
+    -webkit-transition: background-color ease-in-out 300ms;
+    -moz-transition: background-color ease-in-out 300ms;
+    -ms-transition: background-color ease-in-out 300ms;
+    -o-transition: background-color ease-in-out 300ms;
+    transition: background-color ease-in-out 300ms;
+}
+
+    .overview-show:hover {
+        background-color: rgba(0,0,0,0.03);
+    }
+
+.overview-show-poster {
+    width: 260px;
+    margin-left: 10px;
+    margin-top: 10px;
+    border: 1px solid rgba(0,0,0,0.05);
+}
+
+.overview-show-name {
+    text-align: center;
+    font-size: large;
+    font-weight: bold;
+}
+
+.holder {
+    width: 880px;
+    margin: 10px auto;
+}
+
+/* Styles for the request view
+-----------------------------------------------------------*/
+
+.search {
+    width: 825px;
+    height: 70px;
+    margin: 50px auto;
+    background: rgba(0,0,0,0.12);
+    border: 1px solid rgba(0,0,0,0.1);
+    border-radius: 15px;
+}
+
+.search-box {
+    width: 635px;
+    height: 30px;
+    margin: 18px 0px 0px 40px;
+    color: #292929;
+    font-weight: bold;
+    font-size: 15px;
+    background-color: #fff;
+    border: 1px solid #d7d7d7;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+}
+
+input.submit {
+    height: 35px;
+    width: 100px;
+    line-height: 32px;
+    cursor: pointer;
+    border: 1px solid #A20103;
+    border-radius: 4px;
+    color: white;
+    margin-left: 10px;
+    font-weight: 700;
+    text-shadow: 0 1px 0 rgba(0,0,0,.5);
+    background: #b9090b;
+    background: -moz-linear-gradient(top, #b9090b 1%, #9f0002 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(1%,#b9090b), color-stop(100%,#9f0002));
+    background: -webkit-linear-gradient(top, #b9090b 1%,#9f0002 100%);
+    background: -o-linear-gradient(top, #b9090b 1%,#9f0002 100%);
+    background: -ms-linear-gradient(top, #b9090b 1%,#9f0002 100%);
+    background: linear-gradient(to bottom, #b9090b 1%,#9f0002 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#b9090b', endColorstr='#9f0002',GradientType=0 );
+}
+
+    input.submit:hover {
+        background: #D01214;
+        background: -moz-linear-gradient(top, #D01214 1%, #9f0002 100%);
+        background: -webkit-gradient(linear, left top, left bottom, color-stop(1%,#D01214), color-stop(100%,#9f0002));
+        background: -webkit-linear-gradient(top, #D01214 1%,#9f0002 100%);
+        background: -o-linear-gradient(top, #D01214 1%,#9f0002 100%);
+        background: -ms-linear-gradient(top, #D01214 1%,#9f0002 100%);
+        background: linear-gradient(to bottom, #D01214 1%,#9f0002 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#D01214', endColorstr='#9f0002',GradientType=0 );
+    }
+
+.results {
+    width: 950px;
+    margin: 80px auto;
+    -webkit-box-shadow: 0px 0px 8px rgba(0,0,0,0.3);
+    -moz-box-shadow: 0px 0px 8px rgba(0,0,0,0.3);
+    box-shadow: 0px 0px 8px rgba(0,0,0,0.3);
+}
+
+td[colspan="4"] {
+    text-align: center;
+}
+
+.add-col {
+    width: 25px;
+}
+
+.gray-add {
+    background-image: url(images/add-gray.png);
+    width: 24px;
+    height: 24px;
+}
+
+/* Styles for the Login form
+-----------------------------------------------------------*/
+
+.login-form {
+    width: 400px;
+    height: 300px;
+    margin: 20px auto;
+    border-radius: 3px;
+}
+
+    .login-form > input.submit {
+        margin: 30px 15px 0px 0px;
+        float: right;
+    }
+
+    .login-form input[type="text"], .login-form input[type="password"] {
+        background-color: rgba(0,0,0,0.1);
+        -moz-box-shadow: inset 0 1px 8px rgba(0,0,0,0.25);
+        -webkit-box-shadow: inset 0 1px 8px rgba(0,0,0,0.25);
+        box-shadow: inset 0 1px 8px rgba(0,0,0,0.25);
+        border: none;
+        border-radius: 3px;
+        font-size: 25px;
+        padding: 15px;
+        height: 30px;
+        width: 370px;
+        margin-top: 20px;
+        color: wheat;
+    }
+
+label[for="Remember"] {
+    color: white;
+    margin: 35px 0px 0px 15px;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+input[type="checkbox"] {
+    margin: 40px 0px 0px 10px;
+}
+
+label[for="Remember"], input[type="checkbox"] {
+    float: left;
+}
+
+.chillflix-logo {
+    width: 137px;
+    height: 65px;
+    background-image: url(images/logo.png);
+    margin: 100px auto 30px auto;
+}
+
+.validation-summary-errors {
+    padding: 0px 35px 0px 14px;
+    width: 351px;
+    background-color: #f2dede;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+    border: 1px solid #eed3d7;
+    border-radius: 4px;
+    color: #b94a48;
+}
+
+    .validation-summary-errors > ul > li:only-child {
+        display: block;
+        margin-left: -40px;
+    }
+
+::-webkit-input-placeholder {
+    color: #7f0505;
+}
+
+:-moz-placeholder {
+    color: #7f0505;
+}
+
+::-moz-placeholder {
+    color: #7f0505;
+}
+
+:-ms-input-placeholder {
+    color: #7f0505;
+}
+
+/* Styles for the request view
+-----------------------------------------------------------*/
+
+.container {
+    margin-top: 200px;
+    width: 550px;
+    height: 200px;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    margin: 200px auto 0px auto;
+    -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+    -moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+    border-radius: 3px;
+    padding: 10px;
+}
+
+    .container.failed {
+        background-color: rgba(255, 0, 0, 0.05);
+    }
+
+    .container.success {
+        background-color: rgba(0, 255, 0, 0.05);
+    }
+
+.container-text {
+    width: 300px;
+    margin: 60px 0px 0px 225px;
+}
+
+.container-picture {
+    width: 128px;
+    height: 128px;
+    margin: 50px 0px 0px 50px;
+    float: left;
+}
+
+    .container-picture.failed {
+        background: url(images/fail.png) no-repeat;
+    }
+
+    .container-picture.success {
+        background: url(images/success.png) no-repeat;
+    }
+
+/*!
+ * Bootstrap v3.0.3
+ *
+ * Copyright 2013 Twitter, Inc
+ * Licensed under the Apache License v2.0
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Designed and built with all the love in the world @twitter by @mdo and @fat.
+ */
+
+table {
+    max-width: 100%;
+    background-color: transparent;
+}
+
+th {
+    text-align: left;
+}
+
+.table {
+    margin-bottom: 20px;
+}
+
+    .table > thead > tr > th,
+    .table > tbody > tr > th,
+    .table > tfoot > tr > th,
+    .table > thead > tr > td,
+    .table > tbody > tr > td,
+    .table > tfoot > tr > td {
+        padding: 8px;
+        line-height: 1.428571429;
+        vertical-align: top;
+        border-top: 1px solid #dddddd;
+    }
+
+    .table > thead > tr > th {
+        vertical-align: bottom;
+        border-bottom: 2px solid #dddddd;
+    }
+
+    .table > caption + thead > tr:first-child > th,
+    .table > colgroup + thead > tr:first-child > th,
+    .table > thead:first-child > tr:first-child > th,
+    .table > caption + thead > tr:first-child > td,
+    .table > colgroup + thead > tr:first-child > td,
+    .table > thead:first-child > tr:first-child > td {
+        border-top: 0;
+    }
+
+    .table > tbody + tbody {
+        border-top: 2px solid #dddddd;
+    }
+
+    .table .table {
+        background-color: #ffffff;
+    }
+
+.table-condensed > thead > tr > th,
+.table-condensed > tbody > tr > th,
+.table-condensed > tfoot > tr > th,
+.table-condensed > thead > tr > td,
+.table-condensed > tbody > tr > td,
+.table-condensed > tfoot > tr > td {
+    padding: 5px;
+}
+
+.table-bordered {
+    border: 1px solid #dddddd;
+}
+
+    .table-bordered > thead > tr > th,
+    .table-bordered > tbody > tr > th,
+    .table-bordered > tfoot > tr > th,
+    .table-bordered > thead > tr > td,
+    .table-bordered > tbody > tr > td,
+    .table-bordered > tfoot > tr > td {
+        border: 1px solid #dddddd;
+    }
+
+    .table-bordered > thead > tr > th,
+    .table-bordered > thead > tr > td {
+        border-bottom-width: 2px;
+    }
+
+.table-striped > tbody > tr:nth-child(odd) > td,
+.table-striped > tbody > tr:nth-child(odd) > th {
+    background-color: #f9f9f9;
+}
+
+.table-hover > tbody > tr:hover > td,
+.table-hover > tbody > tr:hover > th {
+    background-color: #f5f5f5;
+}
+
+table col[class*="col-"] {
+    position: static;
+    float: none;
+    display: table-column;
+}
+
+table td[class*="col-"],
+table th[class*="col-"] {
+    float: none;
+    display: table-cell;
+}
+
+.table > thead > tr > .active,
+.table > tbody > tr > .active,
+.table > tfoot > tr > .active,
+.table > thead > .active > td,
+.table > tbody > .active > td,
+.table > tfoot > .active > td,
+.table > thead > .active > th,
+.table > tbody > .active > th,
+.table > tfoot > .active > th {
+    background-color: #f5f5f5;
+}
+
+.table-hover > tbody > tr > .active:hover,
+.table-hover > tbody > .active:hover > td,
+.table-hover > tbody > .active:hover > th {
+    background-color: #e8e8e8;
+}
+
+.table > thead > tr > .success,
+.table > tbody > tr > .success,
+.table > tfoot > tr > .success,
+.table > thead > .success > td,
+.table > tbody > .success > td,
+.table > tfoot > .success > td,
+.table > thead > .success > th,
+.table > tbody > .success > th,
+.table > tfoot > .success > th {
+    background-color: #dff0d8;
+}
+
+.table-hover > tbody > tr > .success:hover,
+.table-hover > tbody > .success:hover > td,
+.table-hover > tbody > .success:hover > th {
+    background-color: #d0e9c6;
+}
+
+.table > thead > tr > .danger,
+.table > tbody > tr > .danger,
+.table > tfoot > tr > .danger,
+.table > thead > .danger > td,
+.table > tbody > .danger > td,
+.table > tfoot > .danger > td,
+.table > thead > .danger > th,
+.table > tbody > .danger > th,
+.table > tfoot > .danger > th {
+    background-color: #f2dede;
+}
+
+.table-hover > tbody > tr > .danger:hover,
+.table-hover > tbody > .danger:hover > td,
+.table-hover > tbody > .danger:hover > th {
+    background-color: #ebcccc;
+}
+
+.table > thead > tr > .warning,
+.table > tbody > tr > .warning,
+.table > tfoot > tr > .warning,
+.table > thead > .warning > td,
+.table > tbody > .warning > td,
+.table > tfoot > .warning > td,
+.table > thead > .warning > th,
+.table > tbody > .warning > th,
+.table > tfoot > .warning > th {
+    background-color: #fcf8e3;
+}
+
+.table-hover > tbody > tr > .warning:hover,
+.table-hover > tbody > .warning:hover > td,
+.table-hover > tbody > .warning:hover > th {
+    background-color: #faf2cc;
+}
+
+@media (max-width: 767px) {
+    .table-responsive {
+        width: 100%;
+        margin-bottom: 15px;
+        overflow-y: hidden;
+        overflow-x: scroll;
+        -ms-overflow-style: -ms-autohiding-scrollbar;
+        border: 1px solid #dddddd;
+        -webkit-overflow-scrolling: touch;
+    }
+
+        .table-responsive > .table {
+            margin-bottom: 0;
+        }
+
+            .table-responsive > .table > thead > tr > th,
+            .table-responsive > .table > tbody > tr > th,
+            .table-responsive > .table > tfoot > tr > th,
+            .table-responsive > .table > thead > tr > td,
+            .table-responsive > .table > tbody > tr > td,
+            .table-responsive > .table > tfoot > tr > td {
+                white-space: nowrap;
+            }
+
+        .table-responsive > .table-bordered {
+            border: 0;
+        }
+
+            .table-responsive > .table-bordered > thead > tr > th:first-child,
+            .table-responsive > .table-bordered > tbody > tr > th:first-child,
+            .table-responsive > .table-bordered > tfoot > tr > th:first-child,
+            .table-responsive > .table-bordered > thead > tr > td:first-child,
+            .table-responsive > .table-bordered > tbody > tr > td:first-child,
+            .table-responsive > .table-bordered > tfoot > tr > td:first-child {
+                border-left: 0;
+            }
+
+            .table-responsive > .table-bordered > thead > tr > th:last-child,
+            .table-responsive > .table-bordered > tbody > tr > th:last-child,
+            .table-responsive > .table-bordered > tfoot > tr > th:last-child,
+            .table-responsive > .table-bordered > thead > tr > td:last-child,
+            .table-responsive > .table-bordered > tbody > tr > td:last-child,
+            .table-responsive > .table-bordered > tfoot > tr > td:last-child {
+                border-right: 0;
+            }
+
+            .table-responsive > .table-bordered > tbody > tr:last-child > th,
+            .table-responsive > .table-bordered > tfoot > tr:last-child > th,
+            .table-responsive > .table-bordered > tbody > tr:last-child > td,
+            .table-responsive > .table-bordered > tfoot > tr:last-child > td {
+                border-bottom: 0;
+            }
+}

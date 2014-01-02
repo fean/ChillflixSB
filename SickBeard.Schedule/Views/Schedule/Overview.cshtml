@@ -1,0 +1,42 @@
+﻿@model SickBeard.Schedule.Models.Overview[]
+
+@{
+    ViewBag.Title = "Overview";
+}
+
+<h2>Show Overview</h2>
+
+<div class="holder">
+    <div class="overview margin">
+        @for (var i = 0; i < Model.Length; i += 3)
+        {
+            var currOverview = Model[i];
+            <div class="overview-show">
+                <img class="overview-show-poster" alt="@currOverview.show_name poster" src="/Schedule/GetPoster/@currOverview.tvdbid" />
+                <p class="overview-show-name">@currOverview.show_name</p>
+            </div>
+        }
+    </div>
+
+    <div class="overview margin">
+        @for (var i = 1; i < Model.Length; i += 3)
+        {
+            var currOverview = Model[i];
+            <div class="overview-show">
+                <img class="overview-show-poster" alt="@currOverview.show_name poster" src="/Schedule/GetPoster/@currOverview.tvdbid" />
+                <p class="overview-show-name">@currOverview.show_name</p>
+            </div>
+        }
+    </div>
+
+    <div class="overview">
+        @for (var i = 2; i < Model.Length; i += 3)
+        {
+            var currOverview = Model[i];
+            <div class="overview-show">
+                <img class="overview-show-poster" alt="@currOverview.show_name poster" src="/Schedule/GetPoster/@currOverview.tvdbid" />
+                <p class="overview-show-name">@currOverview.show_name</p>
+            </div>
+        }
+    </div>
+</div>

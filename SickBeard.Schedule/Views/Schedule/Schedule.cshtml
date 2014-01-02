@@ -1,0 +1,51 @@
+﻿@model SickBeard.Schedule.Models.ScheduleAPIResult
+
+@{
+    ViewBag.Title = "Schedule";
+}
+
+<h2>Today</h2>
+
+@if (Model.data.today.Length < 1)
+{
+    <div class="schedule-block">
+        <p class="schedule-title">There are no shows airing today!</p>
+    </div>
+}
+else
+{
+    foreach (var s in Model.data.today)
+    {
+        <div class="schedule-block today">
+            <div class="schedule-title">@s.show_name</div>
+            <div class="schedule-banner">
+                <img src="/Schedule/GetBanner/@s.tvdbid" alt="@s.show_name banner" />
+            </div>
+            <div class="schedule-details">
+                <p class="left">Episode name: @s.ep_name</p>
+                <p class="right">Airs: @s.airdate.ToString("dddd d MMMM yyyy") @(new System.Text.RegularExpressions.Regex("[0-9]{1,2}:[0-9]{2} (PM|AM)").Match(s.airs, 0, s.airs.Length).Value)</p>
+                <p class="right">Global Release: @s.airdate.AddDays(1).ToString("dddd d MMMM yyyy")</p>
+                <p class="left">Season @s.season episode @s.episode</p>
+            </div>
+        </div>
+    }
+}
+
+<h2>Coming up soon</h2>
+
+@foreach (var s in Model.data.soon)
+{
+    <div class="schedule-block">
+        <div class="schedule-title">@s.show_name</div>
+        <div class="schedule-banner">
+            <img src="/Schedule/GetBanner/@s.tvdbid" alt="@s.show_name banner" />
+        </div>
+        <div class="schedule-details">
+            <p class="left">Episode name: @s.ep_name</p>
+            <p class="right">Airs: @s.airdate.ToString("dddd d MMMM yyyy") @(new System.Text.RegularExpressions.Regex("[0-9]{1,2}:[0-9]{2} (PM|AM)").Match(s.airs, 0, s.airs.Length).Value)</p>
+            <p class="right">Global Release: @s.airdate.AddDays(1).ToString("dddd d MMMM yyyy")</p>
+            <p class="left">Season @s.season episode @s.episode</p>
+        </div>
+    </div>
+}
+

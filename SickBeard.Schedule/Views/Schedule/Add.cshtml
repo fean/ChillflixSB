@@ -1,0 +1,23 @@
+﻿@model String[]
+
+@if (Model[0].ToLower() == "success")
+{
+    <div class="container success">
+        <div class="container-picture success"></div>
+        <div class="container-text success">
+            The show has been added to the library, due to optimizations it can take up to 24 hours for the panel to detect the show.
+            But don't worry the back-end system will start to work it's magic within 5 minutes.
+        </div>
+    </div>
+    ViewBag.Title = "Show Added";
+}
+else
+{
+    <div class="container failed">
+        <div class="container-picture failed"></div>
+        <div class="container-text">
+            Ooooh man, this sucks! Something went horribly wrong... The application admin has been notified of this horrible mistake. Please try it again in a little while!
+        </div>
+    </div>
+    ViewBag.Title = "Error";
+}

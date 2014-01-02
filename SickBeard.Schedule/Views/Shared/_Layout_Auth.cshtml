@@ -1,0 +1,25 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+
+    <meta property="og:title" content="@ViewBag.Title to @System.Environment.MachineName" />
+    <meta property="og:site_name" content="ChillFlix Schedule" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="http://chillflix-schedule.dyndns.info/@ViewBag.Title" />
+    <meta property="og:image" content="http://chillflix-schedule.dyndns.info/content/images/logo.png" />
+    <meta property="og:description" content="This is the release schedule for the chillflix Plex platform. It also has an overview of all the series that are followed by the platform." />
+
+    <title>@ViewBag.Title to @System.Environment.MachineName</title>
+    @Styles.Render("~/Content/css")
+</head>
+<body bgcolor="#B9090B">
+
+    @RenderBody()
+
+    @Scripts.Render("~/bundles/jquery")
+
+    @RenderSection("scripts", required: false)
+</body>
+</html>
